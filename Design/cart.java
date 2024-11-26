@@ -7,7 +7,7 @@ public class cart {
     private int qtyOrdered;
     public int addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (qtyOrdered == MAX_NUMBERS_ORDERED) {
-            System.out.println("The cart is almost full. Can't add more díc");
+            System.out.println("The cart is almost full. Can't add more disc");
             return 0;
         } else {
             itemsOrdered[qtyOrdered] = disc;
@@ -16,9 +16,9 @@ public class cart {
             return 1;
         }
     }
-    public int addDigitalVideoDisc(DigitalVideoDisc... dvdArray) {
-        int addCount = 0;
-        for (DigitalVideoDisc disc : dvdArray) {
+    public int addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+    	int addCount = 0;
+        for (DigitalVideoDisc disc : dvdList) {
             if (qtyOrdered == MAX_NUMBERS_ORDERED) {
                 System.out.println("The cart is almost full. Can't add more discs");
                 break;
@@ -28,7 +28,7 @@ public class cart {
                 System.out.println("The DVD " + '\"' + disc.getTitle() + '\"' + " has been added!");
                 addCount++;
             }
-        }
+    }
         return addCount;
     }
     public int addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
@@ -85,29 +85,5 @@ public class cart {
         output.append("total: ").append(totalCost()).append(" $\n");
         output.append("***************************************************\n");
         System.out.println(output);
-    }
-    public void searchById(int i) {
-        if(i > qtyOrdered) {
-            System.out.println("No match found !");
-        } else {
-            System.out.println("Result: " +  "[" + itemsOrdered[i-1].getTitle() +
-                    "] - [" + itemsOrdered[i-1].getCategory() + "] - ["
-                    + itemsOrdered[i-1].getDirector() + "] - ["
-                    + itemsOrdered[i-1].getLength() + "]: " +itemsOrdered[i-1].getCost() + " $\n");
-        }
-
-    }
-
-    public void searchByTitle(String title) {
-        for(int i = 0;i < qtyOrdered; i++) {
-            if(itemsOrdered[i].getTitle().equals(title)) {
-                System.out.println("Result: " +  "[" + itemsOrdered[i].getTitle() +
-                        "] - [" + itemsOrdered[i].getCategory() + "] - ["
-                        + itemsOrdered[i].getDirector() + "] - ["
-                        + itemsOrdered[i].getLength() + "]: " +itemsOrdered[i].getCost() + " $\n");
-                return;
-            }
-        }
-        System.out.println("No match found !");
     }
 }
