@@ -1,1 +1,3 @@
- Java có cho phép tạo 
+- Khi gọi `swap(jungleDVD, cinderellaDVD)`, Java đã tạo ra các bản sao của tham chiếu (reference). Việc hoán đổi chỉ thay đổi các bản sao này bên trong phương thức, còn các tham chiếu gốc trong `main()` vẫn không thay đổi. Vì vậy, sau khi gọi phương thức, `jungleDVD` vẫn giữ giá trị “Jungle” và `cinderellaDVD` vẫn giữ giá trị “Cinderella”.
+
+- Tiêu đề của `JungleDVD` đã thay đổi bởi vì dòng lệnh `dvd.setTitle(title)` đã thay đổi nội dung của đối tượng. Mặc dù `dvd` chỉ là một bản sao của tham chiếu, nó vẫn trỏ đến cùng một đối tượng trong bộ nhớ. Do đó, khi gọi phương thức `setTitle()`, dữ liệu bên trong đối tượng đó đã bị thay đổi.
